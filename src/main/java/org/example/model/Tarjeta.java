@@ -1,11 +1,14 @@
 package org.example.model;
 
-public class Tarjeta implements MetodoPago{
-    private String numeroTarjeta;
-    private Pago thePago;
+public class Tarjeta implements MetodoPago {
+    private final String numeroTarjeta;
+
+    public Tarjeta(String numeroTarjeta) {
+        this.numeroTarjeta = numeroTarjeta;
+    }
 
     @Override
-    public void pagar() {
-        System.out.println("El producto fue pagado en con tarjeta: " + thePago.calcularMonto() + "Numero de tarjeta: " + numeroTarjeta);
+    public void pagar(double monto) {
+        System.out.printf("Pago con tarjeta ", numeroTarjeta, monto);
     }
 }

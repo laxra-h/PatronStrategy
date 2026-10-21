@@ -8,6 +8,7 @@ public class Pago {
 
 private Cliente theCliente;
 private List<Producto> listProducto;
+private MetodoPago metodoPago;
 
     /**
      * Metodo constructor de Pago
@@ -24,6 +25,20 @@ private List<Producto> listProducto;
             monto += p.getCosto();
         }
         return monto;
+    }
+
+    public void setMetodoPago(MetodoPago metodoPago) {
+        this.metodoPago = metodoPago;
+    }
+
+    public void pagar(double monto) {
+        if (metodoPago == null) {
+            throw new IllegalStateException("Debe seleccionar un metodo de pago antes de pagar.");
+        }
+        if (monto <= 0 || monto > calcularMonto()) {
+            throw new IllegalArgumentException("El monto debe ser mayor que cero y no superar el total.");
+        }
+        metodoPago.pagar(monto);
     }
 
 

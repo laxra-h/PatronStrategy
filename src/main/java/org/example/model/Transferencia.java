@@ -1,11 +1,14 @@
 package org.example.model;
 
-public class Transferencia implements MetodoPago{
-    private String numeroCuenta;
-    private Pago thePago;
+public class Transferencia implements MetodoPago {
+    private final String numeroCuenta;
+
+    public Transferencia(String numeroCuenta) {
+        this.numeroCuenta = numeroCuenta;
+    }
 
     @Override
-    public void pagar() {
-        System.out.println("El producto fue pagado en con transferencia: " + thePago.calcularMonto());
+    public void pagar(double monto) {
+        System.out.printf("Pago por transferencia a la cuenta ", numeroCuenta, monto);
     }
 }
