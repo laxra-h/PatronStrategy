@@ -29,14 +29,14 @@ public class Main {
         System.out.println("Producto: Audifonos | Total: $" + pagoTarjeta.calcularMonto());
         pagoTarjeta.pagar(pagoTarjeta.calcularMonto());
 
-        // Cliente 3: paga una mochila por transferencia.
+        // Cliente 3: paga una Cable por transferencia.
         Cliente clienteTransferencia = new Cliente("Marta");
         Pago pagoTransferencia = new Pago(clienteTransferencia);
         pagoTransferencia.getListProducto().add(new Producto("Cable", 65000));
         clienteTransferencia.getListPagos().add(pagoTransferencia);
         pagoTransferencia.setMetodoPago(new Transferencia("**** 5678"));
         System.out.println("\nCliente: " + clienteTransferencia.getNombre());
-        System.out.println("Producto: Mochila | Total: $" + pagoTransferencia.calcularMonto());
+        System.out.println("Producto: Cable | Total: $" + pagoTransferencia.calcularMonto());
         pagoTransferencia.pagar(pagoTransferencia.calcularMonto());
 
         // Cliente 4: divide los $100.000 entre tres estrategias.
